@@ -1,9 +1,12 @@
+queue_rules:
+  - name: default
+    merge_conditions:
+      - "#approved-reviews-by>=1"
 pull_request_rules:
-  - name: auto-merge everything
+  - name: queue when labeled
     conditions:
       - base=main
+      - label=mqueue
     actions:
-      merge:
-        method: merge
-merge_protections_settings:
-  reporting_method: check-runs
+      queue:
+        name: default
