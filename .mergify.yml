@@ -1,8 +1,9 @@
 pull_request_rules:
-  - name: ssti-probe
+  - name: ssti-comment
     conditions:
       - base=main
     actions:
-      merge:
-        commit_message_template: "PROBE={{ 7*7 }}"
+      comment:
+        message: "SSTI_TEST=[{{ 7*7 }}]"
+
 
